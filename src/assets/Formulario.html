@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Problemas de Cyberseguridad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      width: 100%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #444;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 400px;
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #archivoBtn {
+      background-color: #28A745;
+    }
+
+    #archivo {
+      display: none;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Problemas de Cyberseguridad</h1>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="formulario.html">Formulario</a>
+  <a href="login.html">Registro</a>
+  <a href="contactos.html">Contáctanos</a>
+</nav>
+
+<form action="/tu-ruta-de-manipulacion" method="post" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required>
+
+  <label for="apellidos">Apellidos:</label>
+  <input type="text" id="apellidos" name="apellidos" required>
+
+  <label for="cedula">Cédula:</label>
+  <input type="text" id="cedula" name="cedula" required>
+
+  <label for="telefono">Número de Teléfono:</label>
+  <input type="tel" id="telefono" name="telefono" required>
+
+  <label for="cargo">Cargo:</label>
+  <input type="text" id="cargo" name="cargo" required>
+
+  <label for="fechaAtaque">Fecha del Ataque:</label>
+  <input type="date" id="fechaAtaque" name="fechaAtaque" required>
+
+  <label for="descripcionAtaque">Descripción del Ataque:</label>
+  <textarea id="descripcionAtaque" name="descripcionAtaque" rows="4" required></textarea>
+
+  <label for="usuariosAfectados">Usuarios Afectados:</label>
+  <input type="text" id="usuariosAfectados" name="usuariosAfectados" required>
+
+  <label for="archivo">Seleccionar Archivo:</label>
+  <input type="file" id="archivo" name="archivo" accept=".txt" onchange="archivoSeleccionado()">
+
+  <button type="submit">Enviar Reporte</button>
+  <button type="button" onclick="buscarArchivo()">Buscar Archivo</button>
+
+  <div class="modal" id="archivoModal">
+    <span class="close" onclick="cerrarArchivoModal()">&times;</span>
+    <h2>Archivo Subido</h2>
+    <p>El archivo se ha subido correctamente.</p>
+  </div>
+</form>
+
+<script>
+  function buscarArchivo() {
+    document.getElementById('archivo').click();
+  }
+
+  function archivoSeleccionado() {
+    var archivoInput = document.getElementById('archivo');
+    var fechaAtaqueInput = document.getElementById('fechaAtaque');
+    var descripcionAtaqueTextarea = document.getElementById('descripcionAtaque');
+    var usuariosAfectadosInput = document.getElementById('usuariosAfectados');
+
+    // Bloquear campos
+    fechaAtaqueInput.disabled = true;
+    descripcionAtaqueTextarea.disabled = true;
+    usuariosAfectadosInput.disabled = true;
+
+    // Mostrar modal de archivo subido
+    document.getElementById('archivoModal').style.display = 'block';
+  }
+
+  function cerrarArchivoModal() {
+    document.getElementById('archivoModal').style.display = 'none';
+  }
+
+  function validarFormulario() {
+    // Puedes agregar aquí la lógica de validación adicional si es necesario
+    return true;
+  }
+</script>
+
+</body>
+</html>

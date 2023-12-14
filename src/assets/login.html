@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+    }
+
+    header {
+        background-color: #555;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #666;
+        padding: 10px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #ff6600;
+    }
+
+    section {
+        padding: 20px;
+        margin: 10px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+        background-color: #555;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 300px;
+      margin: 20px auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    #registrarseBtn {
+      background-color: #28A745;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #555;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Problemas de Cyberseguridad</h1>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="formulario.html">Formulario</a>
+  <a href="login.html">Registro</a>
+  <a href="contactos.html">Contáctanos</a>
+</nav>
+<form>
+  <label>Inicio de Sesión</label>
+
+  <label for="LoginUsuario">Usuario:</label>
+  <input type="text" id="LoginUsuario" name="Usuario" required>
+
+  <label for="LoginContraseña">Contraseña:</label>
+  <input type="password" id="LoginContraseña" name="Contraseña" required>
+
+  <button type="button">Iniciar Sesión</button>
+  <button id="registrarseBtn" type="button" onclick="abrirModal()">Registrarse</button>
+
+  <div class="modal" id="registroModal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <h2>Registro a la página</h2>
+      <label for="RegistroNombre">Nombre:</label>
+      <input type="text" id="RegistroNombre" required>
+
+      <label for="RegistroApellidos">Apellidos:</label>
+      <input type="text" id="RegistroApellidos">
+
+      <label for="RegistroCorreo">Correo Electrónico:</label>
+      <input type="text" id="RegistroCorreo" required>
+
+      <label for="RegistroContraseña">Contraseña:</label>
+      <input type="password" id="RegistroContraseña" name="Contraseña" required>
+
+        <button id="registro" type="button" style="center">Registrarse</button></div>
+
+  </div>
+</form>
+
+<script>
+  function abrirModal() {
+    document.getElementById('registroModal').style.display = 'block';
+  }
+
+  function cerrarModal() {
+    document.getElementById('registroModal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
